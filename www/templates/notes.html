@@ -1,5 +1,14 @@
 <ion-view view-title="Notes">
   <ion-content>
-    <h1>Notes</h1>
+
+    <div >
+        <button class="button button-icon" ng-click="newNote()">
+            <i class="icon ion-compose"></i>
+        </button>
+    </div>
+      <ion-list>
+          <ion-item ng-repeat="note in notes" ng-click="editNote($index,note)">
+              {{note.title}}
+      </ion-list>
   </ion-content>
 </ion-view>

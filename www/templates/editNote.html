@@ -1,0 +1,26 @@
+<div class="modal">
+
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+        <h1 class="title">Edit Note</h1>
+        <button class="button button-clear button-positive" ng-click="closeEditNote()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+
+        <form ng-submit="saveNote(note)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Title" ng-model="note.title">
+                </label>
+                <textarea name="input47" rows="20" cols="55" ng-model="note.note" placeholder="What's on your mind?"></textarea>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-positive">Create Note</button>
+            </div>
+        </form>
+
+    </ion-content>
+
+</div>

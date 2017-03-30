@@ -1,5 +1,10 @@
 <ion-view view-title="Schedule">
   <ion-content>
-    <h1>Schedule</h1>
+      <div class="schedule-buttons">
+          <button class="button button-stable">Physical Appointments</button>
+          <button class="button button-stable">Virtual Appointments</button>
+      </div>
+
+      <div class="calendar_bottom" ui-calendar="uiConfig.calendar" ng-model="eventSources">
   </ion-content>
 </ion-view>

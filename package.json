@@ -1,7 +1,7 @@
 {
-  "name": "eeva",
+  "name": "eEva",
   "version": "1.1.1",
-  "description": "eEva: An Ionic project",
+  "description": "eEva: An Ionic project for the EVA application",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

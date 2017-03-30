@@ -1,138 +1,273 @@
 angular.module('App.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+    .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+        // With the new view caching in Ionic, Controllers are only called
+        // when they are recreated or on app start, instead of every page change.
+        // To listen for when this page is active (for example, to refresh data),
+        // listen for the $ionicView.enter event:
+        //$scope.$on('$ionicView.enter', function(e) {
+        //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+        // Form data for the login modal
+        $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+        // Create the login modal that we will use later
+        $ionicModal.fromTemplateUrl('templates/login.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.modal = modal;
+        });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+        // Triggered in the login modal to close it
+        $scope.closeLogin = function() {
+            $scope.modal.hide();
+        };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+        // Open the login modal
+        $scope.login = function() {
+            $scope.modal.show();
+        };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+        // Perform the login action when the user submits the login form
+        $scope.doLogin = function() {
+            console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
-})
-.controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate ) {
+            // Simulate a login delay. Remove this and replace with your login
+            // code if using a login system
+            $timeout(function() {
+                $scope.closeLogin();
+            }, 1000);
+        };
+    })
+    .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate ) {
 
-    // User attemped login
+        // User attemped login
 
-    // Called to navigate to the main app
-    var startApp = function() {
-        $state.go('app.homepage');
-        // Set a flag that we finished the tutorial
-        window.localStorage['didTutorial'] = true;
-    };
+        // Called to navigate to the main app
+        var startApp = function() {
+            $state.go('app.homepage');
+            // Set a flag that we finished the tutorial
+            window.localStorage['didTutorial'] = true;
+        };
 
-    // Check if the user already did the tutorial and skip it if so
-    if(window.localStorage['didTutorial'] === "true") {
-        console.log('Skip intro');
-        startApp();
-    }
-
-    // Move to the next slide
-    $scope.next = function() {
-        $ionicSlideBoxDelegate.next()
-    };
-
-    // Move to the next slide
-    $scope.start = function() {
-        startApp();
-    };
-
-    // Our initial right buttons
-    var rightButtons = [
-        {
-            content: 'Next',
-            type: 'button-positive button-clear',
-            tap: function(e) {
-                // Go to the next slide on tap
-                $scope.next();
-            }
+        // Check if the user already did the tutorial and skip it if so
+        if(window.localStorage['didTutorial'] === "true") {
+            console.log('Skip intro');
+            startApp();
         }
-    ];
 
-    // Our initial left buttons
-    var leftButtons = [
-        {
-            content: 'Skip',
-            type: 'button-positive button-clear',
-            tap: function(e) {
-                // Start the app on tap
-                startApp();
-            }
-        }
-    ];
+        // Move to the next slide
+        $scope.next = function() {
+            $ionicSlideBoxDelegate.next()
+        };
 
-    // Bind the left and right buttons to the scope
-    $scope.leftButtons = leftButtons;
-    $scope.rightButtons = rightButtons;
+        // Move to the next slide
+        $scope.start = function() {
+            startApp();
+        };
 
-
-    // Called each time the slide changes
-    $scope.slideChanged = function(index) {
-
-        // Check if we should update the left buttons
-        if(index > 0) {
-            // If this is not the first slide, give it a back button
-            $scope.leftButtons = [
-                {
-                    content: 'Back',
-                    type: 'button-positive button-clear',
-                    tap: function(e) {
-                        // Move to the previous slide
-                        $scope.$broadcast('slideBox.prevSlide');
-                    }
+        // Our initial right buttons
+        var rightButtons = [
+            {
+                content: 'Next',
+                type: 'button-positive button-clear',
+                tap: function(e) {
+                    // Go to the next slide on tap
+                    $scope.next();
                 }
-            ];
-        } else {
-            // This is the first slide, use the default left buttons
-            $scope.leftButtons = leftButtons;
-        }
+            }
+        ];
 
-        // If this is the last slide, set the right button to
-        // move to the app
-        if(index == 2) {
-            $scope.rightButtons = [
-                {
-                    content: 'Start using MyApp',
-                    type: 'button-positive button-clear',
-                    tap: function(e) {
-                        startApp();
-                    }
+        // Our initial left buttons
+        var leftButtons = [
+            {
+                content: 'Skip',
+                type: 'button-positive button-clear',
+                tap: function(e) {
+                    // Start the app on tap
+                    startApp();
                 }
-            ];
-        } else {
-            // Otherwise, use the default buttons
-            $scope.rightButtons = rightButtons;
-        }
-    };
-});
+            }
+        ];
+
+        // Bind the left and right buttons to the scope
+        $scope.leftButtons = leftButtons;
+        $scope.rightButtons = rightButtons;
+
+
+        // Called each time the slide changes
+        $scope.slideChanged = function(index) {
+
+            // Check if we should update the left buttons
+            if(index > 0) {
+                // If this is not the first slide, give it a back button
+                $scope.leftButtons = [
+                    {
+                        content: 'Back',
+                        type: 'button-positive button-clear',
+                        tap: function(e) {
+                            // Move to the previous slide
+                            $scope.$broadcast('slideBox.prevSlide');
+                        }
+                    }
+                ];
+            } else {
+                // This is the first slide, use the default left buttons
+                $scope.leftButtons = leftButtons;
+            }
+
+            // If this is the last slide, set the right button to
+            // move to the app
+            if(index == 2) {
+                $scope.rightButtons = [
+                    {
+                        content: 'Start using MyApp',
+                        type: 'button-positive button-clear',
+                        tap: function(e) {
+                            startApp();
+                        }
+                    }
+                ];
+            } else {
+                // Otherwise, use the default buttons
+                $scope.rightButtons = rightButtons;
+            }
+        };
+    })
+    .controller('HomeCtrl', function($scope, $state, $timeout) {
+        // Using this section to navigate to the different pages from home buttons
+        $scope.session = function() {
+            $state.go('app.session');
+        };
+        $scope.schedule = function() {
+            $state.go('app.schedule');
+        };
+        $scope.notes = function() {
+            $state.go('app.notes');
+        };
+        $scope.results = function() {
+            $state.go('app.results');
+        };
+
+    })
+    .controller('NotesCtrl', function($scope, $state, $timeout, $ionicModal) {
+        // Using this section to navigate to the different pages from home buttons
+        $scope.notes = [
+            {
+                time: 1490853924,
+                note: "Today was a good day",
+                title: "How I feel 3/22/2017"
+            },
+
+            {
+                time: 1490853924,
+                note: "Today was not  a good day",
+                title: "What I thought 3/1/2017"
+            },
+        ]
+        console.log($scope.notes);
+
+        // Create and load the Modal
+        $ionicModal.fromTemplateUrl('templates/newNote.html', function(modal) {
+            $scope.taskModal = modal;
+        }, {
+            scope: $scope,
+            animation: 'slide-in-up'
+        });
+
+        // Create and load the edit Modal
+        $ionicModal.fromTemplateUrl('templates/editNote.html', function(modal) {
+            $scope.editModal = modal;
+        }, {
+            scope: $scope,
+            animation: 'slide-in-up'
+        });
+
+        // Called when the form is submitted
+        $scope.createNote = function(note) {
+            d = Math.floor(Date.now() /1000);
+            $scope.notes.push({
+                title: note.title,
+                note: note.note,
+                time: d
+            });
+            console.log(note);
+            $scope.taskModal.hide();
+            note.title = "";
+            note.note = "";
+        };
+
+        $scope.saveNote = function(note) {
+
+            console.log("nothing being saved");
+            console.log(note);
+            $scope.editModal.hide();
+            note.title = "";
+            note.note = "";
+        };
+
+        $scope.editNote = function(i,note) {
+            $scope.note = {title: note.title, note: note.note, time: note.time};
+            $scope.noteIndex = i;
+            $scope.editModal.show();
+
+        };
+
+        // Open our new task modal
+        $scope.newNote = function() {
+            $scope.taskModal.show();
+        };
+
+        // Close the new modal
+        $scope.closeNewNote = function() {
+            $scope.taskModal.hide();
+        };
+
+        // Close the new edit modal
+        $scope.closeEditNote = function() {
+            $scope.editModal.hide();
+        };
+    })
+    .controller('ScheduleCtrl', function($scope, $state, $compile,uiCalendarConfig) {
+        //Some default events for the calendar
+        $scope.eventSources = [
+            {
+                'title'  : 'Pysical Appointment',
+                'start'  : '2017-03-31T12:00:00',
+                'end'  : '2017-03-31T12:30:00',
+                'allDay' : false // will make the time show
+            },
+            {
+                'title'  : 'Virtual Appointment',
+                'start'  : '2017-04-05',
+                'end'  : '2017-04-05',
+            },
+            {
+                'title'  : 'Physical Appointment',
+                'start'  : '2017-04-14T12:00:00',
+                'allDay' : false // will make the time show
+            }
+
+        ];
+
+        /* config object */
+        $scope.uiConfig = {
+            calendar:{
+                height: 450,
+                editable: true,
+                header:{
+                    left: 'month agendaWeek agendaDay',
+                    center: 'title',
+                    right: 'today prev,next'
+                },
+                eventClick: $scope.alertEventOnClick,
+                eventDrop: $scope.alertOnDrop,
+                eventResize: $scope.alertOnResize
+            }
+        };
+
+    });
+
+
 
