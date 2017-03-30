@@ -3,7 +3,7 @@
 This is the mobilve version of the EVA application. As it stands, this is a design with limited
 functionality and serves as a high-fidelity concept.
 
-A running version can be found at [ https://hci-team.pachevjoseph.com ](https://hci.pachevjoseph.com)
+A running version can be found at [ https://hci-team.pachevjoseph.com ](https://hci-team.pachevjoseph.com)
 
 ## Install global dependencies
 - `npm install -g ionic cordova` to get all necessary dependencies. 
