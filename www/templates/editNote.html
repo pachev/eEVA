@@ -9,7 +9,7 @@
     <!-- Modal content area -->
     <ion-content>
 
-        <form ng-submit="saveNote(note)">
+        <form ng-submit="saveNote(noteIndex, note)">
             <div class="list">
                 <label class="item item-input">
                     <input type="text" placeholder="Title" ng-model="note.title">
