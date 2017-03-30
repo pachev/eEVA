@@ -1,0 +1,44 @@
+<ion-view >
+    <ion-nav-bar>
+        <ion-nav-buttons side="left">
+            <button class="button-positive button-clear" ng-click="start()">
+                <h5>skip</h5>
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button-positive button-clear" ng-click="next()">
+                <h5>next</h5>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-slide-box on-slide-changed="slideChanged(index)">
+        <ion-slide>
+            <h3>Welcome to eEva</h3>
+            <div id="logo">
+                <img src="img/Logo.png">
+            </div>
+            <p>eEVa is here for you</p>
+            <p>This tutorial will walk you through the eEva process</p>
+        </ion-slide>
+        <ion-slide>
+            <h3>Using eEva</h3>
+
+            <div id="list">
+                <h5>A few easy steps:</h5>
+                <ol>
+                    <li>Take the  assessment</li>
+                    <li>Go to your sessions</li>
+                    <li>Write down what's on your mind</li>
+                </ol>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <h3>A few words from Lola</h3>
+            <div id="lola">
+                <img src="img/Tutorial.png">
+            </div>
+            <p><a ng-click="start()" class="button icon-right ion-chevron-right button-stable">Get Started!</a></p>
+            
+        </ion-slide>
+    </ion-slide-box>
+</ion-view>

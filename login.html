@@ -1,0 +1,16 @@
+<ion-view view-title="Login">
+  <ion-content class="padding">
+    <h2>Login</h2>
+    <p>Login to the eEVa </p>
+
+    <!-- Login form -->
+    <form name="loginForm" ng-submit="submitLogin()">
+        <input type="email" placeholder="email" required />
+        <input type="password" placeholder="password" required />
+        <input type="submit" value="Log In" class="button button-positive button-block" />
+    </form>
+
+  </ion-content>
+  <a class="button icon-right ion-chevron-right button-stable">Continue as guest</a>
+  <a class="button icon-right ion-chevron-right button-stable">register</a>
+</ion-view>
