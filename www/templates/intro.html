@@ -1,4 +1,4 @@
-<ion-view >
+<ion-view view-title="Intro">
     <ion-nav-bar>
         <ion-nav-buttons side="left">
             <button class="button-positive button-clear" ng-click="start()">
@@ -6,7 +6,7 @@
             </button>
         </ion-nav-buttons>
         <ion-nav-buttons side="right">
-            <button class="button-positive button-clear" ng-click="next()">
+            <button class="button-positive button-clear" ng-click="next()" ng-show="getIndex() != 2">
                 <h5>next</h5>
             </button>
         </ion-nav-buttons>
@@ -37,7 +37,7 @@
             <div id="lola">
                 <img src="img/Tutorial.png">
             </div>
-            <p><a ng-click="start()" class="button icon-right ion-chevron-right button-stable">Get Started!</a></p>
+            <p><a ng-click="start()" class="button icon-right  button-stable">Get Started!</a></p>
             
         </ion-slide>
     </ion-slide-box>

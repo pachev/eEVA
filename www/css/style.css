@@ -1,33 +1,42 @@
 /* Empty. Add your own CSS if you like */
 
 body {
-  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+    cursor: url('http://ionicframework.com/img/finger.png'), auto;
 }
 .slider {
-  height: 100%;
+    height: 100%;
 }
 .slider-slide {
-  padding-top: 80px;
-  color: #000;
-  background-color: #abccca;
-  text-align: center;
+    padding-top: 80px;
+    color: #000;
+    background-color: #abccca;
+    text-align: center;
 
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-  font-weight: 300;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
 }
 .button_large {
     background-color: #c5c5c5 !important;
-  line-height: 20vh !important;
+    line-height: 20vh !important;
+    color: black !important;
+    padding: 15px;
+
 }
 .button_mid {
     background-color: #c5c5c5 !important;
-  line-height: 10vh !important;
+    line-height: 10vh !important;
+    color: black !important;
+    top: 15px;
+    padding-top: 25px;
+    padding-bottom: 15px;
 }
 .homepage_buttons {
-    padding-top: 80px;
-    padding-left: 10px;
-    padding-right: 10px;
-    
+    padding-top: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.home-logo{
+    padding: 25px !important;
 }
 .session-img {
     margin-right: auto;
@@ -35,11 +44,11 @@ body {
     display: block;
 }
 
-.notes {
-    background-color: #c5c5c5 !important;
-}
 .calendar_bottom {
-    padding-top: 60px;
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
     height: 80%;
 }
 
@@ -48,21 +57,53 @@ body {
     text-align: center;
 }
 
+.logo-header{
+    max-width: 100px;
+    left: 48px;
+    right: 48px;
+    padding-top: 6px;
+}
+.footer-results{
+    position:absolute;
+    left: 41%;
+}
+.selected-phys{
+    background-color: #bfbfbf !important;
+}
+.selected-virt{
+    background-color: #bfbfbf !important;
+}
 
 #logo {
-  margin: 30px 0px;
+    margin: 30px 0px;
 }
 
 #list {
-  width: 170px;
-  margin: 30px auto;
-  font-size: 15px;
+    width: 170px;
+    margin: 30px auto;
+    font-size: 15px;
 }
 #list ol {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 #list ol li {
-  text-align: left;
-  list-style: decimal;
-  margin: 10px 0px;
+    text-align: left;
+    list-style: decimal;
+    margin: 10px 0px;
 }
+.button.ng-hide{
+    display:none;
+}
+
+.login-cancel{
+    float: left;
+    color: gray;
+    margin-left: 25px;
+}
+.login-register{
+    float: right;
+    color: gray;
+    margin-right: 25px;
+}
+
+

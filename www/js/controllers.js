@@ -42,13 +42,12 @@ angular.module('App.controllers', [])
     })
     .controller('IntroCtrl', function($scope, $state, $ionicSlideBoxDelegate ) {
 
+        $scope.logo = "<img class='logo-header' src='img/Logo.png'>";
         // User attemped login
 
         // Called to navigate to the main app
         var startApp = function() {
             $state.go('app.homepage');
-            // Set a flag that we finished the tutorial
-            window.localStorage['didTutorial'] = true;
         };
 
         // Check if the user already did the tutorial and skip it if so
@@ -56,6 +55,12 @@ angular.module('App.controllers', [])
             console.log('Skip intro');
             startApp();
         }
+        $scope.getIndex = function() {
+
+            return $ionicSlideBoxDelegate.currentIndex();
+
+        };
+
 
         // Move to the next slide
         $scope.next = function() {
@@ -135,7 +140,25 @@ angular.module('App.controllers', [])
             }
         };
     })
-    .controller('HomeCtrl', function($scope, $state, $timeout) {
+    .controller('HomeCtrl', function($scope, $state, $timeout, $ionicModal) {
+        // Form data for the login modal
+        $scope.loginData = {};
+
+        // Create the login modal that we will use later
+        $ionicModal.fromTemplateUrl('templates/login.html', {
+            scope: $scope
+        }).then(function(modal) {
+            $scope.modal = modal;
+        if(window.localStorage['didTutorial'] === "false"){
+
+            $scope.login();
+            // Set a flag that we finished the tutorial
+            window.localStorage['didTutorial'] = true;
+        }
+        });
+
+
+
         // Using this section to navigate to the different pages from home buttons
         $scope.session = function() {
             $state.go('app.session');
@@ -148,6 +171,29 @@ angular.module('App.controllers', [])
         };
         $scope.results = function() {
             $state.go('app.results');
+        };
+        $scope.logo = "<img class='logo-header' src='img/Logo.png'>";
+
+
+        // Triggered in the login modal to close it
+        $scope.closeLogin = function() {
+            $scope.modal.hide();
+        };
+
+        // Open the login modal
+        $scope.login = function() {
+            $scope.modal.show();
+        };
+
+        // Perform the login action when the user submits the login form
+        $scope.doLogin = function() {
+            console.log('Doing login', $scope.loginData);
+
+            // Simulate a login delay. Remove this and replace with your login
+            // code if using a login system
+            $timeout(function() {
+                $scope.closeLogin();
+            }, 1000);
         };
 
     })
@@ -166,8 +212,6 @@ angular.module('App.controllers', [])
                 title: "What I thought 3/1/2017"
             },
         ]
-        console.log($scope.notes);
-
         // Create and load the Modal
         $ionicModal.fromTemplateUrl('templates/newNote.html', function(modal) {
             $scope.taskModal = modal;
@@ -186,22 +230,24 @@ angular.module('App.controllers', [])
 
         // Called when the form is submitted
         $scope.createNote = function(note) {
+
             d = Math.floor(Date.now() /1000);
+
             $scope.notes.push({
                 title: note.title,
                 note: note.note,
                 time: d
             });
-            console.log(note);
-            $scope.taskModal.hide();
             note.title = "";
             note.note = "";
+            console.log(note);
+            $scope.taskModal.hide();
         };
 
-        $scope.saveNote = function(note) {
+        $scope.saveNote = function(i,note) {
 
             console.log("nothing being saved");
-            console.log(note);
+            $scope.note[i] = note;
             $scope.editModal.hide();
             note.title = "";
             note.note = "";
@@ -250,6 +296,21 @@ angular.module('App.controllers', [])
             }
 
         ];
+        $scope.phys_selected = true;
+        $scope.virt_selected = false;
+
+        $scope.toggleSelected = function() { 
+
+            if($scope.phys_selected){
+                $scope.phys_selected =false;
+                $scope.virt_selected =true;
+            }else{
+                $scope.phys_selected = true;
+                $scope.virt_selected = false;
+
+            }
+        };
+
 
         /* config object */
         $scope.uiConfig = {

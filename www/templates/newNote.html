@@ -9,12 +9,12 @@
     <!-- Modal content area -->
     <ion-content>
 
-        <form ng-submit="createNote(note)">
+        <form ng-submit="createNote(newNote)">
             <div class="list">
                 <label class="item item-input">
-                    <input type="text" placeholder="Title" ng-model="note.title">
+                    <input type="text" placeholder="Title" ng-model="newNote.title">
                 </label>
-                <textarea name="input47" rows="20" cols="55" ng-model="note.note" placeholder="What's on your mind?"></textarea>
+                <textarea name="input47" rows="20" cols="55" ng-model="newNote.note" placeholder="What's on your mind?"></textarea>
             </div>
             <div class="padding">
                 <button type="submit" class="button button-block button-positive">Create Note</button>
