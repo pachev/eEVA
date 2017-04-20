@@ -9,39 +9,37 @@ body {
 .slider-slide {
     padding-top: 80px;
     color: #000;
-    background-color: #abccca;
+    background-color: #9fa8a3;
     text-align: center;
 
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
 }
 .button_large {
-    background-color: #c5c5c5 !important;
+    background-color: #e3e0cf !important;
     line-height: 20vh !important;
     color: black !important;
     padding: 15px;
 
 }
 .button_mid {
-    background-color: #c5c5c5 !important;
+    background-color: #e3e0cf !important;
     line-height: 10vh !important;
     color: black !important;
     top: 15px;
     padding-top: 25px;
     padding-bottom: 15px;
 }
-.homepage_buttons {
-    padding-top: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
 .home-logo{
     padding: 25px !important;
+    text-align: center;
 }
 .session-img {
     margin-right: auto;
     margin-left: auto;
     display: block;
+    width: 100%;
+    
 }
 
 .calendar_bottom {
@@ -105,5 +103,49 @@ body {
     color: gray;
     margin-right: 25px;
 }
+.bar-header{
+    background-color: rgb(179, 179, 179)  !important;
+}
+.side-menu{
+    background-color: rgba(228, 217, 158, 0.31) !important;
+}
+.side-item{
 
+    background-color: rgba(228, 217, 158, 0.31) !important;
+}
+.modal-wrapper{
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 15px;
+}
+.button.button-positive{
+    color: #e3e0cf;
+    background-color: #9fa8a3;
+}
+.button.button-positive.button-clear{
+    color: black;
+}
 
+.button-section{
+    flex: 1;
+    padding: 5px 10px;
+    height: 100%;
+}
+/* rgb(179, 179, 179) */
+/* rgba(228, 217, 158, 0.31) */
+.button-section-big {
+    flex: 2;
+    height: 100%;
+    display: flex;
+    padding: 0 10px;
+}
+
+.homepage_buttons {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.scroll{
+    height: 100%;
+}

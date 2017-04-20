@@ -1,19 +1,22 @@
 <ion-view view-title="{{logo}}">
   <ion-content class="homepage-wrapper">
        <div class="homepage_buttons">
-          <button ng-click="session()" class="button button-block button-dark button_large">
-              Session
-          </button>
-          <button ng-click="schedule()" class="button button-block button-dark button_mid">
-              Schedule 
-          </button>
-          <button ng-click="notes()"class="button button-block button-dark notes button_mid">
-              Notes
-          </button>
-      </div>
-      <div class="home-logo">
-          <img src="img/Logo.png">
-      </div>
+           <div class="button-section-big">
+               <button ng-click="session()" class="button button-block button-dark button_large">
+                   Session
+               </button>
+           </div>
+           <div class="button-section">
+               <button ng-click="schedule()" class="button button-block button-dark button_mid">
+                   Schedule 
+               </button>
+           </div>
+           <div class="button-section">
+               <button ng-click="notes()"class="button button-block button-dark notes button_mid">
+                   Notes
+               </button>
+           </div>
+       </div>
 
-  </ion-content>
+   </ion-content>
 </ion-view>
